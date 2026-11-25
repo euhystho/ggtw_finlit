@@ -1,0 +1,301 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+  @import url("https://api.fontshare.com/v2/css?f[]=bespoke-serif@400&display=swap");
+  @import url("https://fonts.cdnfonts.com/css/oak-sans");
+
+  .calculator-home {
+    --grizzly-burgundy: #98012e;
+    --grizzly-gold: #fcb034;
+    --grizzly-ink: #190d10;
+    --grizzly-paper: #f9f9f9;
+    color: var(--grizzly-ink);
+    font-family: "Oak Sans", "Trebuchet MS", sans-serif;
+    line-height: 1.65;
+  }
+
+  .calculator-home *,
+  .calculator-home *::before,
+  .calculator-home *::after {
+    box-sizing: border-box;
+  }
+
+  .calculator-home .welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 2.5rem;
+    padding: clamp(2rem, 6vw, 4rem);
+    border-radius: 12px;
+    background: var(--grizzly-burgundy);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(58, 0, 18, 0.18);
+  }
+
+  .calculator-home .welcome-content {
+    min-width: 0;
+  }
+
+  .calculator-home .welcome-bear {
+    display: block;
+    width: clamp(20vw, 12rem);
+    height: auto;
+    flex: 0 0 auto;
+    border-radius: 8px;
+  }
+
+  .calculator-home .eyebrow {
+    margin: 0 0 0.5rem;
+    color: var(--grizzly-gold);
+    font-family: "Anton", Impact, sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .calculator-home .welcome h2 {
+    max-width: 700px;
+    margin: 0;
+    color: #fff;
+    font-family: "Bespoke Serif", Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+  }
+
+  .calculator-home .welcome p:last-child {
+    max-width: 650px;
+    margin: 1rem 0 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.08rem;
+  }
+
+  .calculator-home .section-heading {
+    margin: 0 0 1.25rem;
+    color: var(--grizzly-burgundy);
+    font-family: "Anton", Impact, sans-serif;
+    font-size: 1.65rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .calculator-home .calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 1.1rem;
+    margin: 0;
+  }
+
+  .calculator-home .tool-card {
+    display: flex;
+    min-height: 215px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.4rem;
+    border: 1px solid #eadfe2;
+    border-top: 4px solid var(--grizzly-burgundy);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    color: inherit;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .calculator-home .tool-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--grizzly-gold);
+    box-shadow: 0 8px 18px rgba(65, 0, 20, 0.12);
+    text-decoration: none;
+  }
+
+  .calculator-home .tool-card:focus-visible,
+  .calculator-home .resource-link:focus-visible {
+    outline: 3px solid var(--grizzly-gold);
+    outline-offset: 3px;
+  }
+
+  .calculator-home .tool-icon {
+    display: grid;
+    width: 2.6rem;
+    height: 2.6rem;
+    place-items: center;
+    margin-bottom: 0.8rem;
+    border-radius: 50%;
+    background: #fff4e1;
+    font-size: 1.3rem;
+  }
+
+  .calculator-home .tool-card h3 {
+    margin: 0 0 0.45rem;
+    color: var(--grizzly-burgundy);
+    font-family: "Bespoke Serif", Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .calculator-home .tool-card p {
+    margin: 0;
+    color: #51474a;
+    font-size: 0.96rem;
+  }
+
+  .calculator-home .card-action {
+    margin-top: auto;
+    padding-top: 1rem;
+    color: var(--grizzly-burgundy);
+    font-weight: 700;
+  }
+
+  .calculator-home .more-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem 2rem;
+    margin-top: 2rem;
+    padding: 1.2rem 1.4rem;
+    border-radius: 8px;
+    background: var(--grizzly-paper);
+  }
+
+  .calculator-home .more-info p {
+    margin: 0;
+  }
+
+  .calculator-home .resource-link {
+    color: var(--grizzly-burgundy);
+    font-weight: 700;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .calculator-home .disclaimer {
+    display: flex;
+    justify-content: center;
+    margin: 1.25rem 0 0;
+    color: #62595b;
+    font-size: 0.88rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .calculator-home .tool-card {
+      transition: none;
+    }
+
+    .calculator-home .tool-card:hover {
+      transform: none;
+    }
+  }
+</style>
+
+<div class="calculator-home">
+  <section class="welcome" aria-labelledby="welcome-heading">
+    <div class="welcome-content">
+      <p class="eyebrow">Grizzly Guide to Wealth</p>
+      <h2 id="welcome-heading">Make your next money moves with confidence.</h2>
+      <p>
+        Explore practical, interactive tools for budgeting, saving, borrowing,
+        and investing. Choose a calculator to get started.
+      </p>
+    </div>
+    <img
+      class="welcome-bear"
+      src="ursinus_bear.png"
+      alt="Ursinus College bear mascot"
+    />
+  </section>
+
+  <section aria-labelledby="calculators-heading">
+    <h2 class="section-heading" id="calculators-heading">
+      Explore the calculators
+    </h2>
+    <div class="calculator-grid">
+      <a class="tool-card" href="calculators/expense.html">
+        <span class="tool-icon" aria-hidden="true">💸</span>
+        <h3>Expense Calculator</h3>
+        <p>
+          Organize your income, savings goals, and expenses by month, semester,
+          or year.
+        </p>
+        <span class="card-action"
+          >Plan a budget <span aria-hidden="true">→</span></span
+        >
+      </a>
+
+      <a class="tool-card" href="calculators/savings.html">
+        <span class="tool-icon" aria-hidden="true">🛟</span>
+        <h3>Emergency Savings</h3>
+        <p>
+          Set an emergency fund target and see what it takes to reach your
+          savings goal.
+        </p>
+        <span class="card-action"
+          >Build a safety net <span aria-hidden="true">→</span></span
+        >
+      </a>
+
+      <a class="tool-card" href="calculators/loanrepayment.html">
+        <span class="tool-icon" aria-hidden="true">🏦</span>
+        <h3>Loan Repayment</h3>
+        <p>
+          Estimate monthly payments and see how interest affects the total cost
+          of a loan.
+        </p>
+        <span class="card-action"
+          >Explore loan costs <span aria-hidden="true">→</span></span
+        >
+      </a>
+
+      <a class="tool-card" href="calculators/future_value.html">
+        <span class="tool-icon" aria-hidden="true">📈</span>
+        <h3>Future Value</h3>
+        <p>
+          Project how an investment and regular contributions may grow over
+          time.
+        </p>
+        <span class="card-action"
+          >See potential growth <span aria-hidden="true">→</span></span
+        >
+      </a>
+
+      <a class="tool-card" href="calculators/annuity.html">
+        <span class="tool-icon" aria-hidden="true">💰</span>
+        <h3>Annuity</h3>
+        <p>
+          Explore regular payouts from an investment and how a balance can
+          change over time.
+        </p>
+        <span class="card-action"
+          >Explore payouts <span aria-hidden="true">→</span></span
+        >
+      </a>
+
+      <a class="tool-card" href="calculators/risktolerance.html">
+        <span class="tool-icon" aria-hidden="true">🧭</span>
+        <h3>Risk Tolerance</h3>
+        <p>
+          Answer a short questionnaire to explore your investment risk profile.
+        </p>
+        <span class="card-action"
+          >Discover your profile <span aria-hidden="true">→</span></span
+        >
+      </a>
+    </div>
+  </section>
+
+  <aside class="more-info">
+    <p>Want to learn more about the project? and how it works behind the scenes?</p>
+    <a class="resource-link" href="documentation/GGTW_InternDoc.pdf"
+      >Read the project documentation <span aria-hidden="true">→</span></a
+    >
+  </aside>
+
+  <p class="disclaimer">
+    <strong>Please note: </strong>  These calculators provide estimates for
+    educational purposes only and are not financial advice.
+  </p>
+</div>
